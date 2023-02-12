@@ -7,6 +7,7 @@ import Input from './components/Events/Input';
 import Greet from './components/Greet/Greet';
 import Persons from './components/Person/Persons';
 import Status from './components/Status/Status';
+import LoggedIn from './components/useState/LoggedIn';
 
 const persons=[
   {id:1,firstName:"Jack",lastName:"meley"},
@@ -32,7 +33,8 @@ function App() {
       <StringChildren>Ahmad</StringChildren>
      </TagChildren> */}
     {/* <Button id={1} handleClick={(e)=>clickHandler(e,1)}/> */}
-    <Input inputVal={inputVal} changeHandler={(e)=>changeHandler(e)} />
+    {/* <Input inputVal={inputVal} changeHandler={(e)=>changeHandler(e)} /> */}
+    {/* <LoggedIn /> */}
     </div>
   );
 }
