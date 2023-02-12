@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
 type AuthUser={
     name:string,
@@ -6,19 +7,25 @@ type AuthUser={
 }
 
 const User = () => {
-    const [user,setUser]=useState<AuthUser|null>(null)
+    const [user,setUser]=useState<AuthUser>({} as AuthUser)
     const handleLogin=()=>{
-        
+        setUser({name:"Arman",email:"eee@mn.com"})
     };
-    const handleLogout=()=>{
-        
-    }
+    
+   
     return ( 
         <div>
             <button onClick={handleLogin}>login</button>
-            <button onClick={handleLogout}>logout</button>
+        
+            {user ?
+            <>
             <div>user name is {user?.name}</div>
             <div>user email is {user?.email}</div>
+            </>
+            :
+            <div>not signed in yet </div>
+            
+        }
             <div></div>
         </div>
      );

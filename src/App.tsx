@@ -7,7 +7,11 @@ import Input from './components/Events/Input';
 import Greet from './components/Greet/Greet';
 import Persons from './components/Person/Persons';
 import Status from './components/Status/Status';
+import Counter from './components/useReducer/Counter';
+import Employee from './components/useState/Employee';
 import LoggedIn from './components/useState/LoggedIn';
+import User from './components/useState/User';
+import Users from './components/useState/Users';
 
 const persons=[
   {id:1,firstName:"Jack",lastName:"meley"},
@@ -35,6 +39,10 @@ function App() {
     {/* <Button id={1} handleClick={(e)=>clickHandler(e,1)}/> */}
     {/* <Input inputVal={inputVal} changeHandler={(e)=>changeHandler(e)} /> */}
     {/* <LoggedIn /> */}
+    {/* <User /> */}
+    <Users />
+    {/* <Employee /> */}
+    {/* <Counter /> */}
     </div>
   );
 }
