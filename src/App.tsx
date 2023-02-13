@@ -1,8 +1,13 @@
 import React, { ChangeEvent, useState } from 'react';
 import './App.css';
+import { Private } from './components/auth/Private';
+import Profile from './components/auth/Profile';
 import StringChildren from './components/children/StringChildren';
 import TagChildren from './components/children/TagChildren';
 import Box from './components/context/Box';
+import UserContextProvider from './components/context/User/UserContext';
+import UserContext from './components/context/User/UserContext';
+import Userr from './components/context/User/Userr';
 import Button from './components/Events/Button';
 import Input from './components/Events/Input';
 import Greet from './components/Greet/Greet';
@@ -44,7 +49,11 @@ function App() {
     {/* <Users /> */}
     {/* <Employee /> */}
     {/* <Counter /> */}
-    <Box />
+    {/* <Box /> */}
+    {/* <UserContext>
+    <Userr />
+    </UserContext> */}
+    <Private isLoggedIn={false}  />
     </div>
   );
 }
