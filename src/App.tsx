@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import './App.css';
 import StringChildren from './components/children/StringChildren';
 import TagChildren from './components/children/TagChildren';
+import Box from './components/context/Box';
 import Button from './components/Events/Button';
 import Input from './components/Events/Input';
 import Greet from './components/Greet/Greet';
@@ -40,9 +41,10 @@ function App() {
     {/* <Input inputVal={inputVal} changeHandler={(e)=>changeHandler(e)} /> */}
     {/* <LoggedIn /> */}
     {/* <User /> */}
-    <Users />
+    {/* <Users /> */}
     {/* <Employee /> */}
     {/* <Counter /> */}
+    <Box />
     </div>
   );
 }
