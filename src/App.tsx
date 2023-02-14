@@ -53,7 +53,7 @@ function App() {
     {/* <UserContext>
     <Userr />
     </UserContext> */}
-    <Private isLoggedIn={false}  />
+    {/* <Private isLoggedIn={false}  /> */}
     </div>
   );
 }
