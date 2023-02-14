@@ -11,10 +11,13 @@ export interface ITodo {
     saveTodo: (todo: ITodo) => void;
     updateTodo: (id: number) => void;
   };
+  type ThemeContextProviderProp={
+    children:React.ReactNode
+  }
 
   export const TodoContext = React.createContext<TodoContextType | null>(null);
 
-  const TodoProvider: React.FC<React.ReactNode> = ({ children }) => {
+  const TodoProvider= ({ children }:ThemeContextProviderProp) => {
     const [todos, setTodos] = React.useState<ITodo[]>([
       {
         id: 1,
@@ -46,7 +49,9 @@ export interface ITodo {
         }
       });
     };
-    return <TodoContext.Provider value={{ todos, saveTodo, updateTodo }}>{children}</TodoContext.Provider>;
+    return <TodoContext.Provider value={{ todos, saveTodo, updateTodo }}>
+                {children}
+            </TodoContext.Provider>;
   };
   
   export default TodoProvider;

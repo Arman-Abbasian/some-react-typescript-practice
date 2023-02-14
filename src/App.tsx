@@ -5,6 +5,8 @@ import Profile from './components/auth/Profile';
 import StringChildren from './components/children/StringChildren';
 import TagChildren from './components/children/TagChildren';
 import Box from './components/context/Box';
+import AddTodo from './components/context/Todos/AddTodo';
+import  TodoContext  from './components/context/Todos/TodoContext';
 import UserContextProvider from './components/context/User/UserContext';
 import UserContext from './components/context/User/UserContext';
 import Userr from './components/context/User/Userr';
@@ -18,6 +20,8 @@ import Employee from './components/useState/Employee';
 import LoggedIn from './components/useState/LoggedIn';
 import User from './components/useState/User';
 import Users from './components/useState/Users';
+import TodoProvider from './components/context/Todos/TodoContext';
+import { Todos } from './components/context/Todos/Todos';
 
 const persons=[
   {id:1,firstName:"Jack",lastName:"meley"},
@@ -54,6 +58,13 @@ function App() {
     <Userr />
     </UserContext> */}
     {/* <Private isLoggedIn={false}  /> */}
+    <TodoProvider>
+      <main className='App'>
+        <h1>My Todos</h1>
+        <AddTodo />
+        <Todos />
+      </main>
+    </TodoProvider>
     </div>
   );
 }
