@@ -1,15 +1,17 @@
+import axios from 'axios';
 import * as React from 'react';
 
-export interface ITodo {
+export type ITodo= {
+    userId:number,
     id: number;
     title: string;
-    description: string;
-    status: boolean;
+    completed: boolean;
   }
   export type TodoContextType = {
     todos: ITodo[];
-    saveTodo: (todo: ITodo) => void;
+    addTodo: (todo: ITodo) => void;
     updateTodo: (id: number) => void;
+    getTodos:() => void
   };
   type ThemeContextProviderProp={
     children:React.ReactNode
@@ -20,36 +22,38 @@ export interface ITodo {
   const TodoProvider= ({ children }:ThemeContextProviderProp) => {
     const [todos, setTodos] = React.useState<ITodo[]>([
       {
+        userId:1,
         id: 1,
         title: 'post 1',
-        description: 'this is a description',
-        status: false,
+        completed: false,
       },
       {
+        userId:1,
         id: 2,
         title: 'post 2',
-        description: 'this is a description',
-        status: true,
+        completed: true,
       },
     ]);
-    const saveTodo = (todo: ITodo) => {
+    const addTodo = (todo: ITodo) => {
       const newTodo: ITodo = {
-        id: Math.random(), // not really unique - but fine for this example
+        userId:1,
+        id: Math.random(),
         title: todo.title,
-        description: todo.description,
-        status: false,
+        completed: false,
       };
-      setTodos([...todos, newTodo]);
+      axios.get('https://jsonplaceholder.typicode.com/todos')
+      .then(res=>getTodos())
+      .catch(err=>console.log(err.message))
     };
     const updateTodo = (id: number) => {
-      todos.filter((todo: ITodo) => {
-        if (todo.id === id) {
-          todo.status = true;
-          setTodos([...todos]);
-        }
-      });
+      console.log("update todo")
     };
-    return <TodoContext.Provider value={{ todos, saveTodo, updateTodo }}>
+    const getTodos = () => {
+      axios.get(`https://jsonplaceholder.typicode.com/todos`)
+      .then(res=>setTodos(res.data))
+      .catch(err=>console.log(err.message))
+    };
+    return <TodoContext.Provider value={{ todos, addTodo, updateTodo,getTodos }}>
                 {children}
             </TodoContext.Provider>;
   };
