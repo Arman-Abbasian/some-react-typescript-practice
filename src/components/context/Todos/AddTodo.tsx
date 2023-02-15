@@ -3,30 +3,24 @@ import { ITodo, TodoContext, TodoContextType } from './TodoContext';
 
 const AddTodo: React.FC = () => {
   const { addTodo } = React.useContext(TodoContext) as TodoContextType;
-  const [formData, setFormData] = React.useState<ITodo | {}>();
+  const [formData, setFormData] = React.useState({title:""});
   const handleForm = (e: React.FormEvent<HTMLInputElement>): void => {
-    setFormData({
-      ...formData,
-      [e.currentTarget.id]: e.currentTarget.value,
-    });
+    setFormData({title: e.currentTarget.value});
   };
   const handleSaveTodo = (e: React.FormEvent, formData: ITodo | any) => {
     e.preventDefault();
-    addTodo(formData);
+    console.log({id:Math.random(),title:formData,completed:false})
+    addTodo({id:Math.random(),title:formData,completed:false});
   };
   return (
     <form onSubmit={(e) => handleSaveTodo(e, formData)}>
       <div>
         <div>
-          <label htmlFor="name">Title</label>
+          <label htmlFor="title">Title</label>
           <input onChange={handleForm} type="text" id="title" />
         </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <input onChange={handleForm} type="text" id="description" />
-        </div>
       </div>
-      <button disabled={formData === undefined ? true : false}>Add Todo</button>
+      <button disabled={formData.title === "" ? true : false}>Add Todo</button>
     </form>
   );
 };

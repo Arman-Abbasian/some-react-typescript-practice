@@ -4,7 +4,7 @@ import { ITodo } from './TodoContext';
 
 type Props = {
   todo: ITodo;
-  updateTodo: (id: number) => void;
+  updateTodo: (id: ITodo) => void;
 };
 
 const Todo= ({ todo, updateTodo }:Props) => {
@@ -15,7 +15,7 @@ const Todo= ({ todo, updateTodo }:Props) => {
       <div className="Card--text">
         <h1 className={checkTodo}>{todo.title}</h1>
       </div>
-      <button onClick={() => updateTodo(todo.id)} className={todo.completed ? `hide-button` : 'Card--button'}>
+      <button onClick={() => updateTodo(todo)} className={todo.completed ? `${{styles:'line-through'}}` : 'Card--button'}>
         Complete
       </button>
     </div>

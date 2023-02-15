@@ -7,11 +7,12 @@ export const Todos = () => {
   const { todos, getTodos,updateTodo } = React.useContext(TodoContext) as TodoContextType;
   React.useEffect(()=>{
     getTodos()
-  },[])
+  },[]);
   return (
     <>
-      {todos.map((todo: ITodo) => (
-        <Todo key={todo.id} updateTodo={()=>updateTodo(todo.id)} todo={todo} />
+      {todos && 
+      todos.map((todo: ITodo) => (
+        <Todo key={todo.id} updateTodo={()=>updateTodo(todo)} todo={todo} />
       ))}
     </>
   );
