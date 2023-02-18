@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import reducer from "./syncCounts/bankReducer.ts";
+import {reducer} from "./syncCounts/bankReducer";
 
 
 const rootReducer=combineReducers({
