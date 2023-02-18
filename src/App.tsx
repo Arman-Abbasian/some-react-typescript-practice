@@ -22,6 +22,13 @@ import User from './components/useState/User';
 import Users from './components/useState/Users';
 import TodoProvider from './components/context/Todos/TodoContext';
 import { Todos } from './components/context/Todos/Todos';
+import { useDispatch,useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from './state/index'
+import { State } from './redux';
+import {Provider} from 'react-redux'
+import store from './state/store';
+
 
 const persons=[
   {id:1,firstName:"Jack",lastName:"meley"},
@@ -37,6 +44,10 @@ function App() {
   const  changeHandler=(e:ChangeEvent<HTMLInputElement>)=>{
     setInputVal(e.target.value)
   }
+  const dispatch=useDispatch();
+  const {bankrupt,depositMoney,withdrawMoney}=bindActionCreators(actionCreators,dispatch)
+  const amount=useSelector((state:State)=>state.amount);
+  console.log(amount)
   return (
     <div className="App">
      {/* <Greet name='Arman' isLoggedIn={false} messageCount={10} /> */}
@@ -65,6 +76,10 @@ function App() {
         <Todos />
       </main>
     </TodoProvider> */}
+    <p>{amount}</p>
+    <button onClick={()=>depositMoney(10)}>deposit</button>
+    <button onClick={()=>withdrawMoney(5)}>deposit</button>
+    <button onClick={()=>bankrupt()}>deposit</button>
     </div>
   );
 }

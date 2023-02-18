@@ -1,6 +1,19 @@
+import { ActionType } from "./amountsType";
 import { Dispatch } from "@reduxjs/toolkit"
-import { Action } from "."
-import { ActionType } from "./action-types"
+
+
+interface DepostAction{
+    type:ActionType.DEPOSIT,
+    payload:number
+}
+interface WithdrawAction{
+    type:ActionType.WITHDRAW,
+    payload:number
+}
+interface BankruptAction{
+    type:ActionType.BANKRUPT,
+}
+export type Action=DepostAction|WithdrawAction|BankruptAction
 
 export const depositMoney=(amount:number)=>{
     return (dispatch:Dispatch<Action>)=>{

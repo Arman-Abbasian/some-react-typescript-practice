@@ -1,8 +1,9 @@
-import { Action } from ".";
-import { ActionType } from "./action-types";
+import { Action } from "./amountActions";
+import { ActionType } from "./amountsType";
+
 
 const initialState=0;
-export const reducer=(state:number=initialState,action:Action)=>{
+export const amountReducer=(state:number=initialState,action:Action)=>{
 switch(action.type){
     case ActionType.DEPOSIT:
     return state+action.payload
