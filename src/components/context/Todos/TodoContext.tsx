@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as React from 'react';
+import Todo from './Todo';
 
 export type ITodo= {
     id: number;
@@ -49,3 +50,5 @@ export type ITodo= {
   };
   
   export default TodoProvider;
+
+  export const useTodos = () => React.useContext(TodoContext);

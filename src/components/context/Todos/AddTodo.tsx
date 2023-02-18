@@ -9,7 +9,6 @@ const AddTodo: React.FC = () => {
   };
   const handleSaveTodo = (e: React.FormEvent, formData: ITodo | any) => {
     e.preventDefault();
-    console.log({id:Math.random(),title:formData,completed:false})
     addTodo({id:Math.random(),title:formData,completed:false});
   };
   return (

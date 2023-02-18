@@ -58,13 +58,13 @@ function App() {
     <Userr />
     </UserContext> */}
     {/* <Private isLoggedIn={false}  /> */}
-    <TodoProvider>
+    {/* <TodoProvider>
       <main className='App'>
         <h1>My Todos</h1>
         <AddTodo />
         <Todos />
       </main>
-    </TodoProvider>
+    </TodoProvider> */}
     </div>
   );
 }
