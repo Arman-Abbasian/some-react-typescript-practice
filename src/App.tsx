@@ -44,10 +44,7 @@ function App() {
   const  changeHandler=(e:ChangeEvent<HTMLInputElement>)=>{
     setInputVal(e.target.value)
   }
-  const dispatch=useDispatch();
-  const {bankrupt,depositMoney,withdrawMoney}=bindActionCreators(actionCreators,dispatch)
-  const amount=useSelector((state:State)=>state.amount);
-  console.log(amount)
+
   return (
     <div className="App">
      {/* <Greet name='Arman' isLoggedIn={false} messageCount={10} /> */}
@@ -76,10 +73,7 @@ function App() {
         <Todos />
       </main>
     </TodoProvider> */}
-    <p>{amount}</p>
-    <button onClick={()=>depositMoney(10)}>deposit</button>
-    <button onClick={()=>withdrawMoney(5)}>deposit</button>
-    <button onClick={()=>bankrupt()}>deposit</button>
+    
     </div>
   );
 }
