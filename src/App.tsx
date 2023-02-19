@@ -23,11 +23,13 @@ import Users from './components/useState/Users';
 import TodoProvider from './components/context/Todos/TodoContext';
 import { Todos } from './components/context/Todos/Todos';
 import { useDispatch,useSelector } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { AnyAction, bindActionCreators } from 'redux';
 import { actionCreators } from './state/index'
 import { State } from './redux';
 import {Provider} from 'react-redux'
 import store from './state/store';
+import { RootStore } from './components/asyncRedux/store';
+import { GetPokemon } from './components/asyncRedux/pokemon/pokemonActions';
 
 
 const persons=[
@@ -44,7 +46,16 @@ function App() {
   const  changeHandler=(e:ChangeEvent<HTMLInputElement>)=>{
     setInputVal(e.target.value)
   }
-
+const dispatch=useDispatch();
+const [pokemonName,setPokemonName]=useState("");
+const pokemonState=useSelector((state:RootStore)=>state.pokemon);
+const handleChange=(event:React.ChangeEvent<HTMLInputElement>)=>{
+  setPokemonName(event.target.value)
+}
+const handleSubmit=()=>{
+  console.log("")
+}
+console.log(pokemonState)
   return (
     <div className="App">
      {/* <Greet name='Arman' isLoggedIn={false} messageCount={10} /> */}
@@ -73,7 +84,10 @@ function App() {
         <Todos />
       </main>
     </TodoProvider> */}
-    
+    <div>
+      <input type="text" onChange={handleChange} />
+      <button onClick={handleSubmit}>search</button>
+    </div>
     </div>
   );
 }
