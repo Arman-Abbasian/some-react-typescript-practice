@@ -27,7 +27,6 @@ import { AnyAction, bindActionCreators } from 'redux';
 import { actionCreators } from './state/index'
 import { State } from './redux';
 import {Provider} from 'react-redux'
-import store from './state/store';
 import { RootStore } from './components/asyncRedux/store';
 import { GetPokemon } from './components/asyncRedux/pokemon/pokemonActions';
 
@@ -53,7 +52,7 @@ const handleChange=(event:React.ChangeEvent<HTMLInputElement>)=>{
   setPokemonName(event.target.value)
 }
 const handleSubmit=()=>{
-  console.log("")
+  // dispatch(GetPokemon(pokemonName))
 }
 console.log(pokemonState)
   return (

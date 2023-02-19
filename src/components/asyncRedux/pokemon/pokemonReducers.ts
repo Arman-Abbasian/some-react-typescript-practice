@@ -7,7 +7,7 @@ interface DefaultStateI{
 const defaultState:DefaultStateI={
     loading:false
 }
-const pokemonReducer=(state:DefaultStateI=defaultState,action:PokemonDispatchTypes):DefaultStateI=>{
+const pokemonReducer=(state:DefaultStateI=defaultState ,action:PokemonDispatchTypes):DefaultStateI=>{
     switch(action.type){
         case POKEMON_FAIL:
             return {
